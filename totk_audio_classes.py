@@ -794,11 +794,11 @@ class Bars:
             # In theory, it will result in smaller file sizes, but might cause confusion due to the other audio in Resources/Streams not being needed (?)
             # Need to check what happens when prefetch gets replaced with non-prefetch
             
-            # if not bwav_new.convert_to_prefetch():
-            #     print(f"{name} - Couldn't convert the new BWAV to prefetch...")
-            #     return False
-            # else:
-            print(f"{name} - Automatically converted BWAV to prefetch...")
+            if not bwav_new.convert_to_prefetch():
+                print(f"{name} - Couldn't convert the new BWAV to prefetch...")
+                return False
+            else:
+                print(f"{name} - Automatically converted BWAV to prefetch...")
 
         else:
             if bwav_new.header.is_prefetch:
